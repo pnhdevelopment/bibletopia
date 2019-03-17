@@ -9,3 +9,297 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+
+/* 	GLOBAL STYLES */
+
+body{
+	font-family: 'Lato', sans-serif;
+}
+
+a{
+	color: #2cb5e8;
+}
+
+
+/* HEADER */
+header.container{
+	background-color: #1fc8db;
+    background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+header .logo{
+	max-width: 180px;
+	width: 100%;
+	margin: 0.3rem;
+}
+
+header .btn{
+	background-color: #7ed7ff;
+    border-radius: 0 0.5rem 0.5rem 0;
+    color: white;
+}
+
+header .form-control{
+	border: transparent;
+	border-radius: .5rem;
+}
+
+header button.btn::before {
+    content: "\f002";
+    font-family: FontAwesome;
+}
+
+header button.btn:hover {
+    color: #212529;
+}
+
+
+
+/* SIDEBAR (in posts.php)*/
+#sidebar a{
+	color: #00aeef;
+	transition: 0.2s;
+}
+
+#sidebar a:hover{
+	color: #212529;
+}
+
+#sidebar ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#sidebar li:before {
+  content: "\00bb";
+  padding-right: 9px;
+}
+
+
+/* NAVBAR */
+nav#mainNav a{
+	text-transform: uppercase;
+}
+
+nav#mainNav .navbar-nav li{
+	padding: 0.5rem 1rem;
+	padding-right: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+nav#mainNav .navbar-nav li a{
+	color: white;
+	text-decoration: none;
+	transition: 0.2s;
+}
+
+nav#mainNav .navbar-nav li a:hover{
+	color: #00aeef;
+}
+
+
+/* INDEX & SEARCH PAGE */
+
+/* Heading */
+#posts h1{
+	font-size: 2rem;
+    color: #212529;
+}
+
+/* Links */
+#posts a{
+	text-decoration: none;
+}
+
+#posts a h1{
+	transition: 0.2s;
+}
+
+#posts a:hover h1{
+	text-decoration: none;
+	color: #00aeef;
+	transition: 0.2s;
+}
+
+#posts .categories a,
+#posts a.continue-reading {
+	color: #00aeef;
+	transition: 0.2s;
+}
+
+#posts .categories a:hover,
+#posts a.continue-reading:hover{
+	color: #212529;
+}
+
+/* Icons */
+#posts .icon{
+    width: 20px;
+    height: 25px;
+    fill: #00aeef;
+}
+
+#posts hr{
+	border-top: 1px dotted black;
+}
+
+/* Excerpt */
+#posts p{
+	margin-bottom: 0.5rem;
+}
+
+/* Thumbnail */
+#posts .img-wrapper{
+	width: 100%;
+	position: relative;
+	background-image: linear-gradient(45deg, rgba(178,254,250,0.1), rgba(14,210,247,0.1));
+}
+
+#posts .img-wrapper img{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+@media only screen and (min-width: 992px){
+	.posts-list{
+		column-count: 2;
+	}
+}
+
+
+
+/* Pagination */
+#posts .pagination-wrapper .nav-links{
+	margin: auto;
+}
+
+#posts .pagination-wrapper .nav-links a{
+	margin: 1rem;
+	color: #00aeef;
+	transition: 0.2s;
+}
+
+#posts .pagination-wrapper .nav-links a:hover{
+	color: #212529;
+}
+
+
+
+
+/* SINGLE POST PAGE (single.php) */
+
+
+
+
+
+
+
+/* FOOTER */
+footer{
+	background-color: #343a40;
+}
+
+footer p{
+	color: white;
+}
+
+footer h2{
+	color: white;
+	border-bottom: 1px dotted;
+	padding-bottom: 0.5rem;
+}
+
+footer .logo{
+	max-width: 180px;
+	width: 100%;
+}
+
+footer .btn {
+    background-color: #7ed7ff;
+}
+
+footer button.btn::before {
+    content: "\f002";
+    font-family: FontAwesome;
+}
+
+footer button.btn:hover {
+    color: #212529;
+}
+
+footer a{
+	color: white !important;
+	text-decoration: none !important;
+	transition: 0.2s;
+}
+
+footer a:hover{
+	color: #2cb5e8 !important;
+}
+
+footer .btn{
+	background-color: #7ed7ff;
+    border-radius: 0 0.5rem 0.5rem 0;
+    color: white;
+}
+
+footer .form-control{
+	border: transparent;
+	border-radius: .5rem;
+}
+
+footer button.btn::before {
+    content: "\f002";
+    font-family: FontAwesome;
+}
+
+footer button.btn:hover {
+    color: #212529;
+}
+
+footer a{
+	color: #00aeef;
+	transition: 0.2s;
+}
+
+footer a:hover{
+	color: #212529;
+}
+
+footer ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+footer li:before {
+  content: "\00bb";
+  padding-right: 9px;
+  color: #00aeef;
+}
+
+
+nav#footerNav{
+	background-color: #262829;
+}
+
+nav#footerNav a{
+	text-transform: uppercase;
+	text-decoration: none;
+	color: white;
+	transition: 0.2s;
+}
+
+nav#footerNav a:hover{
+	color: #2cb5e8;
+}
+
+nav#footerNav .navbar-nav li {
+    padding: 0.5rem 1rem;
+}

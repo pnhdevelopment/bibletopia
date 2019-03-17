@@ -1,17 +1,18 @@
-<?php get_header(); ?>
-
 <main class="container">
 	<div id="posts" class="row">
 
 		<div class="col-lg-8 col-sm-8 col-md-8 col-xs-12">
-			<!-- <div class="row"> -->
+
+			<div class="posts-list mb-4">
+				
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-				<!-- <div class="col-lg-6 col-xs-12 mb-4"> -->
+				<div class="post d-inline-block mb-4">
 					
 					<!-- Title -->
 					<a href="<?php the_permalink(); ?>">
 						<h1><?php the_title(); ?></h1>
 					</a>
+
 					
 					<!-- Date -->
 					<small class="mr-2">
@@ -38,7 +39,7 @@
 
 					<hr />
 
-					<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), "full" ); ?>
+					<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), "medium" ); ?>
 
 					<?php if($image_data[0]): ?>
 						<!-- Thumbnail -->
@@ -50,24 +51,35 @@
 							>
 						</div>
 					<?php endif; ?>
-					
 							
 					<!-- Excerpt -->
-					<p><?php the_content(); ?></p>
+					<p><?php the_excerpt(); ?></p>
+
+					<a class="continue-reading" href="<?php the_permalink(); ?>">
+						Continue reading...
+					</a>
+
+				</div>
+
+			<?php endwhile; ?>
+			</div>
 
 
-				<!-- </div> -->
-				<?php endwhile; ?>
-				
-				<?php else: ?>
-					<div>
-						<h1>No results found.</h1>
-						<p>Please search again.</p>
-					</div>
-				<?php endif; ?>
-			<!-- </div> -->
+			<!-- Pagination -->
+			<div class="pagination-wrapper w-100 my-3">
+				<?php the_posts_pagination(); ?>
+			</div>
+
+			<?php else: ?>
+				<div>
+					<h1>No results found.</h1>
+					<p>Please search again.</p>
+				</div>
+			<?php endif; ?>	
+
 		</div>
 		
+
 		<!-- Sidebar -->
 		<div id="sidebar" class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 			<?php if ( is_active_sidebar( 'primary' ) ) : dynamic_sidebar( 'primary' ); endif; ?>
@@ -75,6 +87,3 @@
 
 	</div>
 </main>
-
-
-<?php get_footer(); ?>
