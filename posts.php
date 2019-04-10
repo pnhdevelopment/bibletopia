@@ -43,13 +43,15 @@
 
 					<?php if($image_data[0]): ?>
 						<!-- Thumbnail -->
-						<div class="img-wrapper" style="padding-bottom: calc(<?php echo $image_data[2]/$image_data[1]*100 . '%'; ?>)">
-							<img
-								src="<?php echo $image_data[0]; ?>"
-								title="<?php echo the_post_thumbnail_caption(); ?>"
-								alt="<?php echo the_post_thumbnail_caption(); ?>"
-							>
-						</div>
+						<a href="<?php the_permalink(); ?>">
+							<div class="img-wrapper" style="padding-bottom: calc(<?php echo $image_data[2]/$image_data[1]*100 . '%'; ?>)">
+								<img
+									data-src="<?php echo $image_data[0]; ?>"
+									title="<?php echo the_post_thumbnail_caption(); ?>"
+									alt="<?php echo the_post_thumbnail_caption(); ?>"
+								>
+							</div>
+						</a>
 					<?php endif; ?>
 							
 					<!-- Excerpt -->

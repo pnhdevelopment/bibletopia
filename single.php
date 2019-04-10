@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="container">
+<section class="container">
 	<div id="posts" class="row">
 
 		<div class="col-lg-8 col-sm-8 col-md-8 col-xs-12">
@@ -38,16 +38,18 @@
 
 					<hr />
 
-					<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), "full" ); ?>
+					<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), "large" ); ?>
 
 					<?php if($image_data[0]): ?>
 						<!-- Thumbnail -->
-						<div class="img-wrapper" style="padding-bottom: calc(<?php echo $image_data[2]/$image_data[1]*100 . '%'; ?>)">
-							<img
-								src="<?php echo $image_data[0]; ?>"
-								title="<?php echo the_post_thumbnail_caption(); ?>"
-								alt="<?php echo the_post_thumbnail_caption(); ?>"
-							>
+						<div style="max-width: 550px; margin: auto">
+							<div class="img-wrapper" style="padding-bottom: calc(<?php echo $image_data[2]/$image_data[1]*100 . '%'; ?>)">
+								<img
+									data-src="<?php echo $image_data[0]; ?>"
+									title="<?php echo the_post_thumbnail_caption(); ?>"
+									alt="<?php echo the_post_thumbnail_caption(); ?>"
+								>
+							</div>
 						</div>
 					<?php endif; ?>
 					
@@ -74,7 +76,7 @@
 		</div>
 
 	</div>
-</main>
+</section>
 
 
 <?php get_footer(); ?>

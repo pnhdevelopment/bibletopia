@@ -3,10 +3,16 @@
 wp_enqueue_style( 'style', get_stylesheet_uri() );
 
 
-// Registers the sidebar
-// if ( function_exists ('register_sidebar')) {
-//   register_sidebar(array('id'=>'custom'));
-// } 
+function add_theme_scripts(){
+    wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/script.js', array(), null, true );
+    wp_enqueue_script( 'jquery-script', 'https://code.jquery.com/jquery-3.3.1.slim.min.js', array(), null, true );
+    wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array(), null, true );
+    wp_enqueue_script( 'bootstrap-script', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array(), null, true );
+}
+add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
+
+
+
 
 add_action( 'widgets_init', 'my_register_sidebars' );
 function my_register_sidebars() {
@@ -32,8 +38,11 @@ add_theme_support('custom-logo');
 // Adds theme support for featued images
 add_theme_support( 'post-thumbnails' );
 
+// Adds theme support for title tags
+add_theme_support( 'title-tag' );
 
 
+// Registers main menu
 function register_my_menus() {
   register_nav_menus(
     array(
@@ -54,9 +63,7 @@ add_action( 'init', 'register_my_menus' );
 
 
 
-
-
-
+// initialises widgets
 function bibletopia_widgets_init() {
 
   register_sidebar( array(
@@ -91,7 +98,7 @@ add_action( 'widgets_init', 'bibletopia_widgets_init' );
 
 
 
-
+// Removes some html from wordpress pagination
 function sanitize_pagination($content) {
     // Remove role attribute
     $content = str_replace('role="navigation"', '', $content);
@@ -105,7 +112,7 @@ function sanitize_pagination($content) {
 add_action('navigation_markup_template', 'sanitize_pagination');
 
 
-
+//Appends elipsis to post excerpts
 function new_excerpt_more( $more ) {
     return '...';
 }

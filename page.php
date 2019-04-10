@@ -1,8 +1,7 @@
 <?php get_header(); ?>
 
-
 <main class="container">
-	<div id="posts" class="row">
+	<div id="page" class="row">
 
 		<div class="col-lg-8 col-sm-8 col-md-8 col-xs-12 mb-4">
 
@@ -20,20 +19,36 @@
 
 					<?php if($image_data[0]): ?>
 						<!-- Thumbnail -->
-						<div class="img-wrapper" style="padding-bottom: calc(<?php echo $image_data[2]/$image_data[1]*100 . '%'; ?>)">
-							<img
-								src="<?php echo $image_data[0]; ?>"
-								title="<?php echo the_post_thumbnail_caption(); ?>"
-								alt="<?php echo the_post_thumbnail_caption(); ?>"
-							>
-						</div>
+						<a href="<?php the_permalink(); ?>">
+							<div class="img-wrapper" style="padding-bottom: calc(<?php echo $image_data[2]/$image_data[1]*100 . '%'; ?>)">
+								<img
+									data-src="<?php echo $image_data[0]; ?>"
+									title="<?php echo the_post_thumbnail_caption(); ?>"
+									alt="<?php echo the_post_thumbnail_caption(); ?>"
+								>
+							</div>
+						</a>
 					<?php endif; ?>
 							
 					<!-- Excerpt -->
 					<p><?php //the_excerpt(); ?></p>
 					<?php the_content(); ?>
 
-					<?php echo comment_form(); ?>
+					<?php //comment_form(); ?>
+
+
+					<?php
+						$args = array(
+							'title_reply' => null,
+							'cookies' => null,
+							'comment_notes_before' => null,
+							'class_submit' => 'btn btn-primary',
+							'comment_field' => '<p><textarea id="comment" name="comment" class="form-control w-100" rows="8" aria-required="true"></textarea></p>',
+							'fields' => apply_filters( 'comment_form_default_fields', array() )
+						);
+						comment_form( $args );
+					?>
+
 
 
 					<!-- <a class="continue-reading" href="<?php the_permalink(); ?>">

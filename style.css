@@ -10,6 +10,7 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+@import url("assets/bootstrap.min.css"); 
 
 /* 	GLOBAL STYLES */
 
@@ -19,6 +20,12 @@ body{
 
 a{
 	color: #2cb5e8;
+}
+
+
+.btn.btn-primary{
+	background-color: #00aeef;
+    border-color: #00aeef;
 }
 
 
@@ -155,14 +162,31 @@ nav#mainNav .navbar-nav li a:hover{
 #posts .img-wrapper{
 	width: 100%;
 	position: relative;
-	background-image: linear-gradient(45deg, rgba(178,254,250,0.1), rgba(14,210,247,0.1));
+	/*background-color: linear-gradient(45deg, rgba(178,254,250,0.1), rgba(14,210,247,0.1));*/
+/*	background-color: grey;
+	background-image: url(assets/dove.svg);
+	background-repeat:no-repeat;
+	background-position: center center;*/
+	/*background-size: 100px*/
+	/*background: url(assets/dove.svg) no-repeat center center, linear-gradient(#eb01a5, #d13531);*/
+	/*background: url("assets/dove.svg") no-repeat center center, linear-gradient(45deg, rgba(178,254,250,0.1), rgba(14,210,247,0.1));*/
+	background: url(assets/dove.svg) no-repeat center center, linear-gradient(#e6e6e6, #ececec);
+	background-size: 100px;
+	/*max-width: 550px;*/
 }
 
 #posts .img-wrapper img{
 	width: 100%;
+/*	max-width: 550px; */
 	position: absolute;
 	top: 0;
 	right: 0;
+	opacity: 1;
+    transition: opacity 0.3s;
+}
+
+#posts .img-wrapper img[data-src]{
+	opacity: 0;
 }
 
 
@@ -190,6 +214,27 @@ nav#mainNav .navbar-nav li a:hover{
 }
 
 
+
+/* TOPICS PAGE (page-topics.php) */
+#topics li:before {
+    content: "\00bb";
+    padding-right: 9px;
+}
+
+#topics a{
+	color: #00aeef;
+	transition: 0.2s;
+}
+
+#topics a:hover{
+	color: #212529;
+}
+
+#topics ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
 
 
 /* SINGLE POST PAGE (single.php) */
