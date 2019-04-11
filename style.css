@@ -241,6 +241,17 @@ nav#mainNav .navbar-nav li a:hover{
 
 
 
+/* 404 PAGE (404.php) */
+
+#not-found a{
+	cursor: pointer;
+	color: #00aeef;
+	transition: 0.2s;
+}
+
+#not-found a:hover{
+	color: #212529;
+}
 
 
 

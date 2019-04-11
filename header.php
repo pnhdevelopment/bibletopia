@@ -4,7 +4,20 @@
 
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title><?php wp_title(' | ', true, 'right'); ?><?php bloginfo('name'); ?></title>
+	<title>
+		<?php if( is_front_page() ){
+				bloginfo('name'); echo " | "; bloginfo('description');
+			}else{
+				wp_title(' | ', true, 'right'); bloginfo('name');
+			} ?>	
+	</title>
+
+	<meta name="description" content="<?php if ( is_single() ) {
+	        single_post_title('', true); 
+	    } else {
+	        bloginfo('name'); echo " - "; bloginfo('description');
+	    }
+	    ?>" />
 
 	<!-- <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>"> -->
 
