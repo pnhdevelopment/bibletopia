@@ -1,8 +1,5 @@
 <?php
 
-wp_enqueue_style( 'style', get_stylesheet_uri() );
-
-
 function add_theme_scripts(){
     wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/script.js', array(), null, true );
     wp_enqueue_script( 'jquery-script', 'https://code.jquery.com/jquery-3.3.1.slim.min.js', array(), null, true );
@@ -12,6 +9,10 @@ function add_theme_scripts(){
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 
 
+function theme_styles(){
+    wp_enqueue_style('theme-styles', get_stylesheet_uri(), array(), false, 'all');
+}
+add_action( 'wp_enqueue_scripts', 'theme_styles' );
 
 
 add_action( 'widgets_init', 'my_register_sidebars' );
